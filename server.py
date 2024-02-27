@@ -5,6 +5,11 @@
 # Import Flask, render_template, request from the flask pramework package : TODO
 # Import the sentiment_analyzer function from the package created: TODO
 
+from  flask import Flask, render_template, request, redirect, url_for
+app = Flask(__name__)
+from SentimentAnalysis.sentiment_analysis import sentiment_analyzer
+
+
 #Initiate the flask app : TODO
 
 @app.route("/sentimentAnalyzer")
