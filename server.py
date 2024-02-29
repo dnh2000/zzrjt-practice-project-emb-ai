@@ -20,11 +20,14 @@ def sent_analyzer():
         score for the provided text.
     '''
     text_to_analyze = request.args.get('textToAnalyze')
+     
+    if text_to_analyze == "":
+        return "Empty textfield. Please enter the text to be analyzed."
     response = sentiment_analyzer(text_to_analyze)
     label = response['label']
     score = response['score']
     if label is None:
-        return "Invalid input ! Try again."
+        return "Invalid input! Try again."
     return f"The given text has been identified as {label} with a score of {score}."
 
 @app.route("/")
